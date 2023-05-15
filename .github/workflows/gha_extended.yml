@@ -45,7 +45,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
           tags: |
-            spg51/lab:ghlab10extended
+            v17v3/lab10:ghlab10extended
 
       - name: Move cache
         run: |
