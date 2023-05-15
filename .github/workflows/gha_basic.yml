@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./
-          file: ./Dockerfile_prod
+          file: ./Dockerfile_dev
           push: true
           tags: |
             v17v3/lab10:ghlab10base
