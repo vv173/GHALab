@@ -8,8 +8,8 @@ on:
 #    branches: [ main ]
 
 jobs:
-  build:
-    # Definicja systemu do instalacji na wźle roboczym 
+  build-push-image-to-multiple-registry:
+    name: Build and push Docker image to Docker hub and Azure registry
     runs-on: ubuntu-latest
     
     steps:
@@ -30,6 +30,13 @@ jobs:
         with:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      - name: Login to Azure container registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: zad1registry.azurecr.ios
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
       # Budowa obrazu dla dwóch architektur sprzętowych 
       # oraz przesłanie do własnego repo na Dockerhub
