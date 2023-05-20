@@ -56,4 +56,5 @@ jobs:
           push: true
           tags: |
             v17v3/lab10:ghlab10example
+            zad1registry.azurecr.io/lab10:ghlab10example
       
