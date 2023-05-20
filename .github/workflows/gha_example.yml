@@ -30,13 +30,20 @@ jobs:
         with:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
-
-      - name: Login to Azure container registry
-        uses: azure/docker-login@v1
+      
+      - name: Login to ACR
+        uses: docker/login-action@v2
         with:
-          login-server: zad1registry.azurecr.ios
+          registry: zad1registry.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
+
+      # - name: Login to Azure container registry
+      #   uses: azure/docker-login@v1
+      #   with:
+      #     login-server: zad1registry.azurecr.ios
+      #     username: ${{ secrets.ACR_USERNAME }}
+      #     password: ${{ secrets.ACR_PASSWORD }}
 
       # Budowa obrazu dla dwóch architektur sprzętowych 
       # oraz przesłanie do własnego repo na Dockerhub
