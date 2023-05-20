@@ -54,6 +54,8 @@ jobs:
           context: .
           file: ./Dockerfile_prod
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             v17v3/lab10:ghlab10example
             zad1registry.azurecr.io/lab10:ghlab10example
